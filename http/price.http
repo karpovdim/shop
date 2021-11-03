@@ -1,0 +1,28 @@
+
+### create price
+POST http://localhost:8080/prices
+Content-Type: application/json
+
+{
+  "amount": 30.00,
+  "description": "price from 05.11.2021"
+}
+
+### find all
+GET http://localhost:8080/prices
+
+### find by id
+GET http://localhost:8080/prices/2
+
+### delete by id
+DELETE http://localhost:8080/prices/2
+
+### update
+PUT http://localhost:8080/prices
+Content-Type: application/json
+
+{
+  "id": 1,
+  "amount": 30,
+  "description": "price from 05.11.2021"
+}

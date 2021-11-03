@@ -1,0 +1,25 @@
+### create category
+POST http://localhost:8080/category
+Content-Type: application/json
+
+{
+  "categoryName": "electronics"
+}
+### create sub category
+POST http://localhost:8080/category
+Content-Type: application/json
+
+{
+  "parentId": 1,
+  "categoryName": "phone"
+}
+
+
+### find all
+GET http://localhost:8080/category
+
+### find by id
+GET http://localhost:8080/category/2
+
+### delete by id
+DELETE http://localhost:8080/category/2

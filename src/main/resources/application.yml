@@ -1,0 +1,28 @@
+
+db-schema-name: shop_db
+
+spring:
+  liquibase:
+    enabled: false
+    change-log: db/changelog/changelog.yaml
+    default-schema: ${db-schema-name}
+
+  jpa:
+    show-sql: false
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        #        format_sql: true
+        dialect: ${spring.jpa.database-platform}
+        storage_engine: innodb
+        default_schema: ${db-schema-name}
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/${db-schema-name}
+    username: root
+    password: pass
