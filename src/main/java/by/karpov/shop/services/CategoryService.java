@@ -34,7 +34,10 @@ public class CategoryService {
     }
 
     public Category save(Category category) {
-      return   categoryRepository.save(category);
+        if (category.getParent() != null) {
+            category.getParent().getSub().add(category);
+        }
+        return categoryRepository.save(category);
     }
 }
 

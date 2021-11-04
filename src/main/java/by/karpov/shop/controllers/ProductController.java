@@ -1,5 +1,6 @@
 package by.karpov.shop.controllers;
 
+import by.karpov.shop.Dto.CreateProductRequest;
 import by.karpov.shop.Dto.ProductDto;
 import by.karpov.shop.Facade.ProductFacade;
 import lombok.RequiredArgsConstructor;

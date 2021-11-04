@@ -23,13 +23,11 @@ public class Product {
     private String productName;
 
     @Column(nullable = false)
-    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
     private List<Price> prices;
 
-    @ManyToMany(mappedBy = "products", cascade = {
-            CascadeType.REMOVE
-    })
+    @ManyToMany(mappedBy = "products")
     @ToString.Exclude
     private List<Category> categories;
 

@@ -2,11 +2,13 @@ package by.karpov.shop.Facade;
 
 import by.karpov.shop.Dto.PriceDto;
 import by.karpov.shop.mapper.PriceMapper;
+import by.karpov.shop.models.Price;
 import by.karpov.shop.services.PriceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Currency;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,4 +41,9 @@ public class PriceFacade {
         return priceMapper.map(priceService.save(priceMapper.map(priceDto)));
     }
 
+    public List<PriceDto> findByCurrency(Currency currency) {
+       return priceService.findByCurrency(currency).stream()
+               .map(priceMapper::map)
+               .collect(Collectors.toList());
+    }
 }

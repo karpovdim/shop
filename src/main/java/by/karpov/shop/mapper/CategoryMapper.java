@@ -8,12 +8,13 @@ import org.mapstruct.NullValueMappingStrategy;
 
 @Mapper(componentModel = "spring",
         uses = {CategoriesMapper.class, ProductsMapper.class},
-        nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
+        nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT
+  )
 public interface CategoryMapper {
     @Mapping(source = "parent.id", target = "parentId")
     CategoryDto map(Category entity);
 
-    @Mapping(source = "parentId", target = "parent.id")
+    @Mapping(source = "parentId", target = "parent")
     Category map(CategoryDto dto);
 
 }

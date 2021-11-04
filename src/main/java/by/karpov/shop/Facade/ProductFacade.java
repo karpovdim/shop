@@ -1,5 +1,6 @@
 package by.karpov.shop.Facade;
 
+import by.karpov.shop.Dto.CreateProductRequest;
 import by.karpov.shop.Dto.ProductDto;
 import by.karpov.shop.mapper.ProductMapper;
 import by.karpov.shop.services.ProductService;

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Currency;
 import java.util.List;
 
 @Controller
@@ -39,5 +40,10 @@ private final PriceFacade priceFacade;
     @PutMapping
     public ResponseEntity<PriceDto> update( @RequestBody PriceDto priceDto) {
         return ResponseEntity.accepted().body(priceFacade.update(priceDto));
+    }
+
+    @GetMapping("/currency/{currency}")
+    public ResponseEntity<List<PriceDto>> findById(@PathVariable Currency currency) {
+        return ResponseEntity.ok(priceFacade.findByCurrency(currency));
     }
 }

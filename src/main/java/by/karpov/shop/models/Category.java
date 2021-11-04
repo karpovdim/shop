@@ -29,9 +29,7 @@ public class Category {
     private List<Category> sub;
     @Column
     private String categoryName;
-    @ManyToMany(cascade = {
-            CascadeType.REMOVE
-    })
+    @ManyToMany
     @JoinTable(
             name = "categories_product",
             joinColumns = {@JoinColumn(name = "category_id")},

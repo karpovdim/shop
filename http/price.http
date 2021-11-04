@@ -4,8 +4,10 @@ POST http://localhost:8080/prices
 Content-Type: application/json
 
 {
-  "amount": 30.00,
-  "description": "price from 05.11.2021"
+  "amount": 20.00,
+  "description": "price from 05.11.2021",
+  "currency": "EUR",
+  "productId": 1
 }
 
 ### find all
@@ -24,5 +26,9 @@ Content-Type: application/json
 {
   "id": 1,
   "amount": 30,
-  "description": "price from 05.11.2021"
+  "description": "price from 05.11.2021",
+  "currency": "EUR"
 }
+
+### all by currency
+GET http://localhost:8080/prices/currency/EUR

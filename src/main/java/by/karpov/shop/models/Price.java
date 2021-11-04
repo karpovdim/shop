@@ -27,6 +27,10 @@ public class Price {
     @Column
     private Currency currency;
 
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

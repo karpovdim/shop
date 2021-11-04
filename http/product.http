@@ -3,6 +3,24 @@ POST http://localhost:8080/product
 Content-Type: application/json
 
 {
-  "amount": 25.00,
-  "description": "price from 03.11.2021"
+  "productName": "samsung XT20",
+  "prices": [
+    {
+      "amount": 11.11,
+      "currency": "BYN",
+      "description": "test"
+    }
+  ],
+  "categories": [
+  2
+  ]
 }
+
+### find all
+GET http://localhost:8080/product
+
+### find by id
+GET http://localhost:8080/product/1
+
+### delete by id
+DELETE http://localhost:8080/product/6
