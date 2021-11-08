@@ -14,27 +14,30 @@ import java.util.Objects;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "categories")
+@Table(name = "category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade ={
-            CascadeType.ALL
-    })
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
     private Category parent;
-    @OneToMany
+
+    @Column
+    @OneToMany(cascade = CascadeType.ALL)
     @ToString.Exclude
     private List<Category> sub;
-    @Column
+
+    @Column(name = "category_name")
     private String categoryName;
-    @ManyToMany
     @JoinTable(
-            name = "categories_product",
+            name = "category_product",
             joinColumns = {@JoinColumn(name = "category_id")},
             inverseJoinColumns = {@JoinColumn(name = "product_id")}
     )
+
+    @ManyToMany
     @ToString.Exclude
     private List<Product> products;
 

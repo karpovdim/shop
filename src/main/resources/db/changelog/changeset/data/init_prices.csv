@@ -1,0 +1,6 @@
+id,amount,currency,description,product_id
+1,15,EUR,DESC1,1
+2,25,EUR,DESC2,2
+3,27,EUR,DESC3,3
+4,29.99,USD,DESC4,4
+5,25,EUR,DESC2,4

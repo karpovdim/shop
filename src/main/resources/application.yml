@@ -8,7 +8,7 @@ spring:
     default-schema: ${db-schema-name}
 
   jpa:
-    show-sql: false
+    show-sql: true
     open-in-view: false
     database-platform: org.hibernate.dialect.MySQL8Dialect
     properties:
@@ -18,8 +18,9 @@ spring:
         storage_engine: innodb
         default_schema: ${db-schema-name}
     hibernate:
-      ddl-auto: create
-    generate-ddl: true
+      ddl-auto: validate
+    generate-ddl: false
+
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

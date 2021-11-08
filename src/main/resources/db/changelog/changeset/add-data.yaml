@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-data
+      author: karpov
+      changes:
+        - loadData:
+           # catalogName: cat
+            columns:
+              - column:
+                  index: 1
+                  name: id
+                  type: NUMERIC
+              - column:
+                  index: 2
+                  name: category_name
+                  type: STRING
+              - column:
+                    index: 3
+                    name: parent_id
+                    type: NUMERIC
+            commentLineStartsWith: //
+            encoding: UTF-8
+            file: db/changelog/changeset/data/init_categories.csv
+            quotchar: ''''
+            relativeToChangelogFile: true
+            schemaName: shop_db
+            separator: ;
+            tableName: category
+            usePreparedStatements: true

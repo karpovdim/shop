@@ -17,7 +17,7 @@ GET http://localhost:8080/prices
 GET http://localhost:8080/prices/2
 
 ### delete by id
-DELETE http://localhost:8080/prices/2
+DELETE http://localhost:8080/prices/1
 
 ### update
 PUT http://localhost:8080/prices

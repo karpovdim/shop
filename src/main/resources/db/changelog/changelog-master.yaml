@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/create-product-table.yaml
+  - include:
+      file: db/changelog/changeset/create-price-table.yaml
+  - include:
+      file: db/changelog/changeset/create-price_id-product_id-table.yaml
+  - include:
+      file: db/changelog/changeset/create-category-table.yaml
+  - include:
+      file: db/changelog/changeset/create-category_product-table.yaml
+  - include:
+      file: db/changelog/changeset/create-category_sub-table.yaml
+  - include:
+      file: db/changelog/changeset/add-data.yaml

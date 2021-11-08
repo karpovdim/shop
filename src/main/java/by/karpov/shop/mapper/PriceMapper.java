@@ -8,6 +8,6 @@ import org.mapstruct.Mapper;
 public interface PriceMapper {
     PriceDto map(Price entity);
 
-    @Mapping(source = "productId", target = "product")
+    //@Mapping(source = "productId", target = "product")
     Price map(PriceDto dto);
 }

@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      options:
+        collate: utf8_bin
+        charset: utf8
+        type: InnoDB
+      id: create-category_sub
+      author: karpov
+      changes:
+        - createTable:
+            tableName: category_sub
+            columns:
+              - column:
+                  name: category_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+                    foreignKeyName: category_id_2
+                    references: category(id)
+              - column:
+                  name: sub_id
+                  type: bigint
+                  constraints:
+                    deleteCascade: true
+                    nullable: true
+                    foreignKeyName: sub_id_1
+                    references: category(id)
