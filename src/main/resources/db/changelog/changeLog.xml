@@ -11,5 +11,8 @@
     http://www.liquibase.org/xml/ns/dbchangelog
     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd
     ">
-    <include file="db/changelog/logs/2021-11-04.xml"/>
+    <include file="db/changelog/logs/2021-11-09_1_create_tables.xml"/>
+    <include file="db/changelog/logs/2021-11-09_2_load_csv.xml"/>
+    <include file="db/changelog/logs/2021-11-09_3_add_cascadeDelete_product-price.xml"/>
+    <include file="db/changelog/logs/2021-11-09_4_add_cascadeDelete_category-product.xml"/>
 </databaseChangeLog>

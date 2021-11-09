@@ -23,4 +23,4 @@ GET http://localhost:8080/product
 GET http://localhost:8080/product/4
 
 ### delete by id
-DELETE http://localhost:8080/product/2
+DELETE http://localhost:8080/product/4

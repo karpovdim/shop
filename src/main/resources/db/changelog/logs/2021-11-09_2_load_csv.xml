@@ -1,0 +1,58 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/pro
+    http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd
+    ">
+    <changeSet id="2021-11-04.1" author="user">
+        <loadData tableName="category" file="db/changelog/data/init_categories.csv">
+            <column header="id"
+                    name="id"
+                    type="NUMERIC"/>
+            <column header="categoryName"
+                    name="category_name"
+                    type="STRING"/>
+            <column header="parent_id"
+                    name="parent_id"
+                    type="NUMERIC"/>
+        </loadData>
+    </changeSet>
+        <changeSet id="2021-11-04.2" author="user">
+            <loadData tableName="category_sub" file="db/changelog/data/init_categories_sub.csv"/>
+        </changeSet>
+
+    <changeSet id="2021-11-04.3" author="user">
+        <loadData tableName="price" file="db/changelog/data/init_prices.csv">
+            <column index="0"
+                    name="id"
+                    type="NUMERIC"/>
+            <column index="1"
+                    name="amount"
+                    type="NUMERIC"/>
+            <column index="2"
+                    name="description"
+                    type="STRING"/>
+            <column index="3"
+                    name="currency"
+                    type="STRING"/>
+        </loadData>
+
+    </changeSet>
+
+            <changeSet id="2021-11-04.4" author="user">
+                <loadData tableName="product" file="db/changelog/data/init_product.csv"/>
+            </changeSet>
+            <changeSet id="2021-11-04.5" author="user">
+                <loadData tableName="category_product" file="db/changelog/data/init_categories_product.csv"/>
+            </changeSet>
+            <changeSet id="2021-11-04.6" author="user">
+                <loadData tableName="product_prices" file="db/changelog/data/init_product_prices.csv"/>
+            </changeSet>
+</databaseChangeLog>
