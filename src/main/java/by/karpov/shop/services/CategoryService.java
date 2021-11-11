@@ -2,14 +2,12 @@ package by.karpov.shop.services;
 
 import by.karpov.shop.exeptions.NotFoundEntityException;
 import by.karpov.shop.models.Category;
-import by.karpov.shop.models.Price;
 import by.karpov.shop.repositories.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
