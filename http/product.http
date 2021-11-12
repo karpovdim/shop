@@ -12,7 +12,7 @@ Content-Type: application/json
     }
   ],
   "categories": [
-  3
+  8
   ]
 }
 
@@ -24,3 +24,17 @@ GET http://localhost:8080/product/4
 
 ### delete by id
 DELETE http://localhost:8080/product/4
+
+### find by name
+GET http://localhost:8080/product/productName
+Content-Type: application/json
+
+{
+"productName":"samsung_xt25"
+}
+
+### find by price.amount
+GET http://localhost:8080/product/productPrice/25
+
+### find by category id
+GET http://localhost:8080/product/productCategory/1

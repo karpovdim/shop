@@ -23,4 +23,4 @@ GET http://localhost:8080/category
 GET http://localhost:8080/category/3
 
 ### delete by id
-DELETE http://localhost:8080/category/3
+DELETE http://localhost:8080/category/4

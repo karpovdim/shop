@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -41,5 +42,17 @@ public class ProductController {
     @PutMapping
     public ResponseEntity<ProductDto> update(@RequestBody ProductDto productDto) {
         return ResponseEntity.accepted().body(productFacade.update(productDto));
+    }
+    @GetMapping("/productName")
+    public ResponseEntity<ProductDto> findByName(@RequestBody ProductDto productDto){
+        return ResponseEntity.ok(productFacade.findByName(productDto));
+    }
+    @GetMapping("/productPrice/{price}")
+    public ResponseEntity<List<ProductDto>> findByPrice(@PathVariable BigDecimal price){
+        return ResponseEntity.ok(productFacade.findByPrice(price));
+    }
+    @GetMapping("/productCategory/{id}")
+    public ResponseEntity<List<ProductDto>> findByCategory(@PathVariable Long id){
+        return ResponseEntity.ok(productFacade.findByCategoryId(id));
     }
 }

@@ -1,21 +1,21 @@
 Domain model:
 
-    ● Product
+    ● Product +
 
-    ● Category
+    ● Category +
 
-    ● Price
+    ● Price +
 
 
 Relations:
 
-    ● Product can have many or many Categories.
+    ● Product can have many or many Categories. +
 
-    ● Categories can have 0 or many Products.
+    ● Categories can have 0 or many Products. +
 
-    ● Product must have one or many Prices.
+    ● Product must have one or many Prices. +
 
-    ● Category can have sub category or parent category.
+    ● Category can have sub category or parent category. +
 
 
 Implement a backoffice application which support:
@@ -26,13 +26,13 @@ Implement a backoffice application which support:
 
         o Product
 
-            ▪ By code (unique)
+            ▪ By code (unique) +
 
-            ▪ By name
+            ▪ By name +
 
-            ▪ By price
+            ▪ By price +
 
-            ▪ By category code
+            ▪ By category code +
 
         o Category
 

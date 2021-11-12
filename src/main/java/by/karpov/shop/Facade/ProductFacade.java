@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +39,22 @@ public class ProductFacade {
 
     public ProductDto update(ProductDto productDto) {
         return productMapper.map(productService.save(productMapper.map(productDto)));
+    }
+
+    public ProductDto findByName(ProductDto productDto) {
+        return productMapper.map(productService.findByName(productDto.getProductName()));
+    }
+
+    public List<ProductDto> findByPrice(BigDecimal price) {
+        return productService.findByPrice(price).stream()
+                .map(productMapper::map)
+                .collect(Collectors.toList());
+    }
+
+    public List<ProductDto> findByCategoryId(Long id) {
+        return productService.findByCategoryId(id).stream()
+                .map(productMapper::map)
+                .collect(Collectors.toList());
     }
 
 }

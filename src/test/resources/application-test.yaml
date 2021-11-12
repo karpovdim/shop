@@ -2,7 +2,7 @@ db-schema-name: shop_db
 
 spring:
   liquibase:
-#    enabled: false
+  #    enabled: false
 
   jpa:
     show-sql: true
@@ -13,9 +13,8 @@ spring:
         dialect: ${spring.jpa.database-platform}
         storage_engine: ''
         default_schema: ${db-schema-name}
-    hibernate:
-#      ddl-auto: validate
-    generate-ddl: true
+        ddl-auto: validate
+        generate-ddl: true
 
   datasource:
     driver-class-name: org.hsqldb.jdbcDriver
