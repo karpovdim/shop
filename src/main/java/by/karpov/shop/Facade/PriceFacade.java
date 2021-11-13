@@ -40,10 +40,4 @@ public class PriceFacade {
     public PriceDto update(PriceDto priceDto) {
         return priceMapper.map(priceService.save(priceMapper.map(priceDto)));
     }
-
-    public List<PriceDto> findByCurrency(Currency currency) {
-       return priceService.findByCurrency(currency).stream()
-               .map(priceMapper::map)
-               .collect(Collectors.toList());
-    }
 }

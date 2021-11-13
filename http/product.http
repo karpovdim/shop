@@ -40,7 +40,7 @@ GET http://localhost:8080/product/productPrice/25
 GET http://localhost:8080/product/productCategory/1
 
 ### find all product by currency
-GET http://localhost:8080/product/currency/USD
+GET http://localhost:8080/product/currency/EUR
 
 ### find products with price between price start and price end.
 GET http://localhost:8080/product/productBetween/25/29

@@ -41,9 +41,4 @@ private final PriceFacade priceFacade;
     public ResponseEntity<PriceDto> update( @RequestBody PriceDto priceDto) {
         return ResponseEntity.accepted().body(priceFacade.update(priceDto));
     }
-
-    @GetMapping("/currency/{currency}")
-    public ResponseEntity<List<PriceDto>> findAllByCurrency(@PathVariable Currency currency) {
-        return ResponseEntity.ok(priceFacade.findByCurrency(currency));
-    }
 }

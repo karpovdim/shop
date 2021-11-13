@@ -6,6 +6,8 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring", uses = ProductsMapper.class)
 public interface PriceMapper {
+
+    //@Mapping(source = "product.id", target = "productId")
     PriceDto map(Price entity);
 
     //@Mapping(source = "productId", target = "product")

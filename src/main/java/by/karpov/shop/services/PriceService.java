@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Currency;
 import java.util.List;
 
 @Service
@@ -38,9 +37,5 @@ public class PriceService {
 
     public Price save(Price price) {
         return priceRepository.save(price);
-    }
-
-    public List<Price> findByCurrency(Currency currency) {
-        return priceRepository.findAllByCurrency(currency);
     }
 }

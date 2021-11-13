@@ -13,5 +13,4 @@ public class PriceDto {
     BigDecimal amount;
     String description;
     Currency currency;
-    Long productId;
 }
