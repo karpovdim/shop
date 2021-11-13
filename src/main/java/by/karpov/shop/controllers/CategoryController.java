@@ -41,4 +41,8 @@ public class CategoryController {
     public ResponseEntity<CategoryDto> update(@RequestBody CategoryDto categoryDto) {
         return ResponseEntity.accepted().body(categoryFacade.update(categoryDto));
     }
+    @GetMapping("categoryName/{nameCategory}")
+    public ResponseEntity<CategoryDto> findByNameCategory(@PathVariable String nameCategory){
+        return ResponseEntity.ok(categoryFacade.findByName(nameCategory));
+    }
 }

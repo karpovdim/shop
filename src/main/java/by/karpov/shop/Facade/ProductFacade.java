@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,4 +58,15 @@ public class ProductFacade {
                 .collect(Collectors.toList());
     }
 
+    public List<ProductDto> findByCurrency(Currency currency) {
+        return productService.findByCurrency(currency).stream()
+                .map(productMapper::map)
+                .collect(Collectors.toList());
+    }
+
+    public List<ProductDto> findBetween(BigDecimal priceStart, BigDecimal priceEnd) {
+        return productService.findBetween(priceStart, priceEnd).stream()
+                .map(productMapper::map)
+                .collect(Collectors.toList());
+    }
 }

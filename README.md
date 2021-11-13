@@ -34,19 +34,15 @@ Implement a backoffice application which support:
 
             ▪ By category code +
 
+            ▪ By currency +
+
+            ▪ By price range (from 100$ to 200$) +
+
         o Category
 
-            ▪ By code (unique)
+            ▪ By code (unique) +
 
-            ▪ By name
-
-        o Price
-
-            ▪ By currency
-
-            ▪ By product
-
-            ▪ By price range (from 100$ to 200$)
+            ▪ By name +
 
     ● CRUD operations for all entities (Create, read, update, delete)
 

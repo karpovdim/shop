@@ -12,7 +12,7 @@ Content-Type: application/json
     }
   ],
   "categories": [
-  8
+    8
   ]
 }
 
@@ -30,7 +30,7 @@ GET http://localhost:8080/product/productName
 Content-Type: application/json
 
 {
-"productName":"samsung_xt25"
+  "productName": "samsung_xt25"
 }
 
 ### find by price.amount
@@ -38,3 +38,9 @@ GET http://localhost:8080/product/productPrice/25
 
 ### find by category id
 GET http://localhost:8080/product/productCategory/1
+
+### find all product by currency
+GET http://localhost:8080/product/currency/USD
+
+### find products with price between price start and price end.
+GET http://localhost:8080/product/productBetween/25/29

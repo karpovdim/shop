@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.List;
 
 @Service
@@ -35,13 +36,24 @@ public class ProductService {
     public Product save(Product product) {
         return productRepository.save(product);
     }
-    public Product findByName(String name){
+
+    public Product findByName(String name) {
         return productRepository.findByProductName(name);
     }
-    public List<Product> findByPrice(BigDecimal price){
+
+    public List<Product> findByPrice(BigDecimal price) {
         return productRepository.findAllByPrices_AmountEquals(price);
     }
-    public List<Product> findByCategoryId(Long id){
+
+    public List<Product> findByCategoryId(Long id) {
         return productRepository.findByCategories_Id(id);
+    }
+
+    public List<Product> findByCurrency(Currency currency) {
+        return productRepository.findAllByPrices_Currency(currency);
+    }
+
+    public List<Product> findBetween(BigDecimal priceStart, BigDecimal priceEnd) {
+        return productRepository.findProductBetween(priceStart, priceEnd);
     }
 }

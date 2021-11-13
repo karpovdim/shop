@@ -1,6 +1,7 @@
 package by.karpov.shop.controllers;
 
 import by.karpov.shop.Dto.CreateProductRequest;
+import by.karpov.shop.Dto.PriceDto;
 import by.karpov.shop.Dto.ProductDto;
 import by.karpov.shop.Facade.ProductFacade;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.List;
 
 @Controller
@@ -54,5 +56,13 @@ public class ProductController {
     @GetMapping("/productCategory/{id}")
     public ResponseEntity<List<ProductDto>> findByCategory(@PathVariable Long id){
         return ResponseEntity.ok(productFacade.findByCategoryId(id));
+    }
+    @GetMapping("/currency/{currency}")
+    public ResponseEntity<List<ProductDto>> findByCurrency(@PathVariable Currency currency) {
+        return ResponseEntity.ok(productFacade.findByCurrency(currency));
+    }
+   @GetMapping("productBetween/{priceStart}/{priceEnd}")
+    public ResponseEntity<List<ProductDto>> findBetween(@PathVariable(name = "priceStart") BigDecimal priceStart, @PathVariable(name = "priceEnd" ) BigDecimal priceEnd ){
+        return  ResponseEntity.ok(productFacade.findBetween(priceStart,priceEnd));
     }
 }

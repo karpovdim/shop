@@ -24,3 +24,5 @@ GET http://localhost:8080/category/3
 
 ### delete by id
 DELETE http://localhost:8080/category/4
+### find by name category
+GET http://localhost:8080/category/categoryName/cat2

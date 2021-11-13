@@ -2,6 +2,7 @@ package by.karpov.shop.services;
 
 import by.karpov.shop.exeptions.NotFoundEntityException;
 import by.karpov.shop.models.Category;
+import by.karpov.shop.models.Product;
 import by.karpov.shop.repositories.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,10 @@ public class CategoryService {
         }
         return categoryRepository.save(category);
     }
+    public Category findByName(String name){
+        return categoryRepository.findByCategoryName(name);
+    }
+
 }
 
 

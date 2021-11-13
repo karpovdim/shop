@@ -43,7 +43,7 @@ private final PriceFacade priceFacade;
     }
 
     @GetMapping("/currency/{currency}")
-    public ResponseEntity<List<PriceDto>> findById(@PathVariable Currency currency) {
+    public ResponseEntity<List<PriceDto>> findAllByCurrency(@PathVariable Currency currency) {
         return ResponseEntity.ok(priceFacade.findByCurrency(currency));
     }
 }

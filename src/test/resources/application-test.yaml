@@ -16,8 +16,4 @@ spring:
         ddl-auto: validate
         generate-ddl: true
 
-  datasource:
-    driver-class-name: org.hsqldb.jdbcDriver
-    url: jdbc:hsqldb:mem:shop_db;createDatabaseIfNotExist=true;DB_CLOSE_DELAY=-1
-    username: sa
-    password: ''
+

@@ -38,5 +38,8 @@ public class CategoryFacade {
     public CategoryDto update(CategoryDto categoryDto) {
         return categoryMapper.map(categoryService.save(categoryMapper.map(categoryDto)));
     }
+    public CategoryDto findByName(String name){
+        return categoryMapper.map(categoryService.findByName(name));
+    }
 
 }
