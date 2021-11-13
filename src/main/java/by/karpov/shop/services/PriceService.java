@@ -23,7 +23,7 @@ public class PriceService {
     public List<Price> findAll() {
         return priceRepository.findAll();
     }
-    
+
 
     public void deleteById(Long id) {
         priceRepository.deleteById(id);
@@ -32,8 +32,6 @@ public class PriceService {
     public Price update(Price price) {
         return priceRepository.save(price);
     }
-
-   
 
     public Price save(Price price) {
         return priceRepository.save(price);

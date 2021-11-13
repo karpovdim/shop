@@ -4,6 +4,7 @@ import by.karpov.shop.Dto.CreateProductRequest;
 import by.karpov.shop.Dto.ProductDto;
 import by.karpov.shop.models.Product;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.NullValueMappingStrategy;
 
 @Mapper(componentModel = "spring",

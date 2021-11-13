@@ -21,7 +21,7 @@ public class ProductController {
     private final ProductFacade productFacade;
 
     @PostMapping
-    public ResponseEntity<ProductDto> create(@RequestBody ProductDto productDto) {
+    public ResponseEntity<ProductDto> create(@RequestBody CreateProductRequest productDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(productFacade.create(productDto));
     }
 

@@ -20,7 +20,8 @@ public class ProductFacade {
     private final ProductService productService;
     private final ProductMapper productMapper;
 
-    public ProductDto create(ProductDto productDto) {
+    public ProductDto create(CreateProductRequest productDto) {
+
         return productMapper.map(productService.save(productMapper.map(productDto)));
     }
 

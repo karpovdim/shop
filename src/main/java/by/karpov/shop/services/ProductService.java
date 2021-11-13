@@ -34,6 +34,7 @@ public class ProductService {
     }
 
     public Product save(Product product) {
+        product.getCategories().forEach(cat -> cat.getProducts().add(product));
         return productRepository.save(product);
     }
 
