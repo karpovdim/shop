@@ -1,16 +1,14 @@
 package by.karpov.shop.controllers;
 
-import by.karpov.shop.Dto.PriceDto;
-import by.karpov.shop.Facade.PriceFacade;
+import by.karpov.shop.dto.PriceDto;
+import by.karpov.shop.facade.PriceFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Currency;
 import java.util.List;
 @Validated
 @RestController

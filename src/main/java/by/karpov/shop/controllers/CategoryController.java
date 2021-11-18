@@ -1,11 +1,10 @@
 package by.karpov.shop.controllers;
 
-import by.karpov.shop.Dto.CategoryDto;
-import by.karpov.shop.Facade.CategoryFacade;
+import by.karpov.shop.dto.CategoryDto;
+import by.karpov.shop.facade.CategoryFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

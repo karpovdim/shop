@@ -1,6 +1,6 @@
 package by.karpov.shop.mapper;
 
-import by.karpov.shop.Dto.CategoryDto;
+import by.karpov.shop.dto.CategoryDto;
 import by.karpov.shop.models.Category;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

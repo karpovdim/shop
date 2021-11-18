@@ -1,5 +1,6 @@
-package by.karpov.shop;
+package by.karpov.shop.it;
 
+import by.karpov.shop.it.AbstractIT;
 import by.karpov.shop.models.Category;
 import by.karpov.shop.repositories.CategoryRepository;
 import org.junit.jupiter.api.Test;

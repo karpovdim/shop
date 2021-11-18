@@ -1,14 +1,12 @@
-package by.karpov.shop.Facade;
+package by.karpov.shop.facade;
 
-import by.karpov.shop.Dto.PriceDto;
+import by.karpov.shop.dto.PriceDto;
 import by.karpov.shop.mapper.PriceMapper;
-import by.karpov.shop.models.Price;
 import by.karpov.shop.services.PriceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Currency;
 import java.util.List;
 import java.util.stream.Collectors;
 

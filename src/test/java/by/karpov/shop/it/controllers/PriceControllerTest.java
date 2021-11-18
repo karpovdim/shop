@@ -1,11 +1,11 @@
-package by.karpov.shop.controllers;
+package by.karpov.shop.it.controllers;
 
-import by.karpov.shop.integration.AbstractControllerTest;
+import by.karpov.shop.it.AbstractControllerTest;
 import by.karpov.shop.models.Price;
 import by.karpov.shop.repositories.PriceRepository;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 
@@ -14,11 +14,11 @@ import java.util.Collections;
 import java.util.Currency;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -39,9 +39,7 @@ class PriceControllerTest extends AbstractControllerTest {
 
     @Test
     void create() throws Exception {
-
         when(priceRepository.save(any(Price.class))).thenReturn(price);
-
         //when(priceRepository.save(eq(Price.builder().id(7L).build()))).thenReturn(price);
 
         String json = "{" +
@@ -92,7 +90,6 @@ class PriceControllerTest extends AbstractControllerTest {
 
     @Test
     void findById() throws Exception {
-
         when(priceRepository.findById(eq(1L))).thenReturn(Optional.of(price));
         mockMvc
                 .perform(get("/prices/1"))
@@ -100,21 +97,27 @@ class PriceControllerTest extends AbstractControllerTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.id").value(1));
     }
-  @Test
-    void findById_throw() throws Exception {
 
+    @Test
+    void findById_throw() throws Exception {
         when(priceRepository.findById(eq(1L))).thenReturn(Optional.empty());
         mockMvc
                 .perform(get("/prices/1"))
                 .andExpect(status().isNotFound());
-
-
     }
-//
-//    @Test
-//    void deleteById() {
-//        when(priceRepository.deleteById(eq(1L)));
-//    }
+
+    @Test
+    void deleteById() throws Exception {
+        doNothing().when(priceRepository).deleteById(eq(1L));
+        mockMvc
+                .perform(delete("/prices/1"))
+                .andExpect(status().isAccepted());
+
+        ArgumentCaptor<Long> argumentCaptor = ArgumentCaptor.forClass(Long.class);
+
+        verify(priceRepository, times(1)).deleteById(argumentCaptor.capture());
+        assertEquals(1, argumentCaptor.getValue());
+    }
 
     @Test
     void update() {

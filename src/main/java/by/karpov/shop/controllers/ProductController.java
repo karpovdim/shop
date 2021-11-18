@@ -1,9 +1,8 @@
 package by.karpov.shop.controllers;
 
-import by.karpov.shop.Dto.CreateProductRequest;
-import by.karpov.shop.Dto.PriceDto;
-import by.karpov.shop.Dto.ProductDto;
-import by.karpov.shop.Facade.ProductFacade;
+import by.karpov.shop.dto.CreateProductRequest;
+import by.karpov.shop.dto.ProductDto;
+import by.karpov.shop.facade.ProductFacade;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -14,7 +13,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;

@@ -1,4 +1,4 @@
-package by.karpov.shop;
+package by.karpov.shop.it;
 
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;

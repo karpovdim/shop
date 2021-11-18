@@ -1,6 +1,6 @@
-package by.karpov.shop.Facade;
+package by.karpov.shop.facade;
 
-import by.karpov.shop.Dto.CategoryDto;
+import by.karpov.shop.dto.CategoryDto;
 import by.karpov.shop.mapper.CategoryMapper;
 import by.karpov.shop.services.CategoryService;
 import lombok.RequiredArgsConstructor;

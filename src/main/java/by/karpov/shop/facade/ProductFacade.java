@@ -1,7 +1,7 @@
-package by.karpov.shop.Facade;
+package by.karpov.shop.facade;
 
-import by.karpov.shop.Dto.CreateProductRequest;
-import by.karpov.shop.Dto.ProductDto;
+import by.karpov.shop.dto.CreateProductRequest;
+import by.karpov.shop.dto.ProductDto;
 import by.karpov.shop.mapper.ProductMapper;
 import by.karpov.shop.services.ProductService;
 import lombok.RequiredArgsConstructor;

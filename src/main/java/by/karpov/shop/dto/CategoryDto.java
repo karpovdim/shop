@@ -1,4 +1,4 @@
-package by.karpov.shop.Dto;
+package by.karpov.shop.dto;
 
 import lombok.Builder;
 import lombok.Value;

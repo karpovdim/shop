@@ -1,7 +1,8 @@
-package by.karpov.shop.Facade;
+package by.karpov.shop.it.facade;
 
-import by.karpov.shop.AbstractIT;
-import by.karpov.shop.Dto.PriceDto;
+import by.karpov.shop.it.AbstractIT;
+import by.karpov.shop.dto.PriceDto;
+import by.karpov.shop.facade.PriceFacade;
 import by.karpov.shop.repositories.PriceRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

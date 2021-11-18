@@ -1,7 +1,7 @@
 package by.karpov.shop.mapper;
 
-import by.karpov.shop.Dto.CreateProductRequest;
-import by.karpov.shop.Dto.ProductDto;
+import by.karpov.shop.dto.CreateProductRequest;
+import by.karpov.shop.dto.ProductDto;
 import by.karpov.shop.models.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

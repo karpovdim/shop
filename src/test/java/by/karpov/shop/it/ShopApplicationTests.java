@@ -1,4 +1,4 @@
-package by.karpov.shop;
+package by.karpov.shop.it;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
