@@ -30,7 +30,13 @@ public class PriceService {
     }
 
     public Price update(Price price) {
-        return priceRepository.save(price);
+        Price priceById = priceRepository.findById(price.getId()).orElseThrow();
+        if (priceById.getAmount() != null) priceById.setAmount(price.getAmount());
+        if (priceById.getCurrency() != null) priceById.setCurrency(price.getCurrency());
+        if (priceById.getDescription() != null && !priceById.getDescription().isBlank()) {
+            priceById.setDescription(price.getDescription());
+        }
+        return priceRepository.save(priceById);
     }
 
     public Price save(Price price) {

@@ -6,7 +6,7 @@ Content-Type: application/json
 {
   "amount": 20.00,
   "description": "price from 05.11.2021",
-  "currency": "EUR",
+  "currency": "",
   "productId": 1
 }
 
@@ -27,7 +27,7 @@ Content-Type: application/json
   "id": 1,
   "amount": 30,
   "description": "price from 05.11.2021",
-  "currency": "EUR"
+  "currency": "USD"
 }
 
 ### all by currency

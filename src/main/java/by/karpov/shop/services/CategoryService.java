@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -25,11 +27,18 @@ public class CategoryService {
     }
 
     public void deleteById(Long id) {
+        categoryRepository.findById(id).orElseThrow(() -> new NotFoundEntityException(id, Category.class));
         categoryRepository.deleteById(id);
     }
 
     public Category update(Category category) {
-        return categoryRepository.save(category);
+        Category categoryByRepository = categoryRepository.findById(category.getId()).orElseThrow();
+        if (category.getParent() != null) categoryByRepository.setParent(category.getParent());
+        if (category.getCategoryName() != null) categoryByRepository.setCategoryName(category.getCategoryName());
+        if (category.getProducts() != null) categoryByRepository.setProducts(category.getProducts());
+
+
+        return categoryRepository.save(categoryByRepository);
     }
 
     public Category save(Category category) {
@@ -38,7 +47,8 @@ public class CategoryService {
         }
         return categoryRepository.save(category);
     }
-    public Category findByName(String name){
+
+    public Category findByName(String name) {
         return categoryRepository.findByCategoryName(name);
     }
 

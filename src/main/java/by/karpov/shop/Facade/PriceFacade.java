@@ -38,6 +38,6 @@ public class PriceFacade {
     }
 
     public PriceDto update(PriceDto priceDto) {
-        return priceMapper.map(priceService.save(priceMapper.map(priceDto)));
+        return priceMapper.map(priceService.update(priceMapper.map(priceDto)));
     }
 }

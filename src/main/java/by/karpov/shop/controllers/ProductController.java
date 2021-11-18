@@ -4,7 +4,14 @@ import by.karpov.shop.Dto.CreateProductRequest;
 import by.karpov.shop.Dto.PriceDto;
 import by.karpov.shop.Dto.ProductDto;
 import by.karpov.shop.Facade.ProductFacade;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,7 +21,7 @@ import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/product")
 public class ProductController {
@@ -25,9 +32,19 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(productFacade.create(productDto));
     }
 
-    @GetMapping
-    public ResponseEntity<List<ProductDto>> findAll() {
-        return ResponseEntity.ok(productFacade.findAll());
+    @Operation(summary = "Get a book by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the book",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ProductDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Book not found",
+                    content = @Content)})
+
+    @GetMapping()
+    public ResponseEntity<Page<ProductDto>> findAll(Pageable pageable) {
+        return ResponseEntity.ok(productFacade.findAll(pageable));
     }
 
     @GetMapping("/{id}")
@@ -45,24 +62,29 @@ public class ProductController {
     public ResponseEntity<ProductDto> update(@RequestBody ProductDto productDto) {
         return ResponseEntity.accepted().body(productFacade.update(productDto));
     }
+
     @GetMapping("/productName")
-    public ResponseEntity<ProductDto> findByName(@RequestBody ProductDto productDto){
+    public ResponseEntity<ProductDto> findByName(@RequestBody ProductDto productDto) {
         return ResponseEntity.ok(productFacade.findByName(productDto));
     }
+
     @GetMapping("/productPrice/{price}")
-    public ResponseEntity<List<ProductDto>> findByPrice(@PathVariable BigDecimal price){
+    public ResponseEntity<List<ProductDto>> findByPrice(@PathVariable BigDecimal price) {
         return ResponseEntity.ok(productFacade.findByPrice(price));
     }
+
     @GetMapping("/productCategory/{id}")
-    public ResponseEntity<List<ProductDto>> findByCategory(@PathVariable Long id){
+    public ResponseEntity<List<ProductDto>> findByCategory(@PathVariable Long id) {
         return ResponseEntity.ok(productFacade.findByCategoryId(id));
     }
+
     @GetMapping("/currency/{currency}")
     public ResponseEntity<List<ProductDto>> findByCurrency(@PathVariable Currency currency) {
         return ResponseEntity.ok(productFacade.findByCurrency(currency));
     }
-   @GetMapping("productBetween/{priceStart}/{priceEnd}")
-    public ResponseEntity<List<ProductDto>> findBetween(@PathVariable(name = "priceStart") BigDecimal priceStart, @PathVariable(name = "priceEnd" ) BigDecimal priceEnd ){
-        return  ResponseEntity.ok(productFacade.findBetween(priceStart,priceEnd));
+
+    @GetMapping("productBetween/{priceStart}/{priceEnd}")
+    public ResponseEntity<List<ProductDto>> findBetween(@PathVariable(name = "priceStart") BigDecimal priceStart, @PathVariable(name = "priceEnd") BigDecimal priceEnd) {
+        return ResponseEntity.ok(productFacade.findBetween(priceStart, priceEnd));
     }
 }

@@ -5,6 +5,9 @@ import by.karpov.shop.Dto.ProductDto;
 import by.karpov.shop.mapper.ProductMapper;
 import by.karpov.shop.services.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,10 +28,11 @@ public class ProductFacade {
         return productMapper.map(productService.save(productMapper.map(productDto)));
     }
 
-    public List<ProductDto> findAll() {
-        return productService.findAll().stream()
+    public Page<ProductDto> findAll(Pageable pageable) {
+        List<ProductDto> list = productService.findAll(pageable).getContent().stream()
                 .map(productMapper::map)
                 .collect(Collectors.toList());
+        return new PageImpl<>(list,pageable, list.size());
     }
 
     public ProductDto findById(Long id) {
@@ -40,7 +44,7 @@ public class ProductFacade {
     }
 
     public ProductDto update(ProductDto productDto) {
-        return productMapper.map(productService.save(productMapper.map(productDto)));
+        return productMapper.map(productService.update(productMapper.map(productDto)));
     }
 
     public ProductDto findByName(ProductDto productDto) {

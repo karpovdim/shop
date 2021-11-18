@@ -6,18 +6,20 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Currency;
 import java.util.List;
-
-@Controller
+@Validated
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/prices")
 public class PriceController {
 private final PriceFacade priceFacade;
     @PostMapping
-    public ResponseEntity<PriceDto> create( @RequestBody PriceDto priceDto) {
+    public ResponseEntity<PriceDto> create( @Valid @RequestBody PriceDto priceDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(priceFacade.create(priceDto));
     }
 
